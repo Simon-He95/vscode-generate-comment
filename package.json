@@ -48,6 +48,7 @@
     "@antfu/eslint-config": "^0.38.4",
     "@types/node": "^18.15.11",
     "@types/vscode": "^1.77.0",
+    "anthropic-api": "^1.0.0",
     "axios": "^1.4.0",
     "bumpp": "^9.1.0",
     "chatgpt": "^5.2.4",
