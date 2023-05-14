@@ -11,8 +11,8 @@ devDependencies:
     specifier: ^1.77.0
     version: 1.77.0
   anthropic-ai:
-    specifier: ^0.0.2
-    version: 0.0.2(typescript@5.0.3)
+    specifier: ^0.0.5
+    version: 0.0.5(typescript@5.0.3)
   anthropic-api:
     specifier: ^1.0.0
     version: 1.0.0
@@ -950,9 +950,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /anthropic-ai@0.0.2(typescript@5.0.3):
-    resolution: {integrity: sha512-u/IbS1qR4EETOrrXnUWDtHJFnf7ijQJ7pXCnwYoKBPh0/AhQpj7+dCADmsLLskDMqyRVdlY/swS614+3nzkw5A==}
-    hasBin: true
+  /anthropic-ai@0.0.5(typescript@5.0.3):
+    resolution: {integrity: sha512-0f1eU1lemEyPfh7xnl84/W4HGB2uffrFu9JU6CSypqCqPHRl8YpJjUSdsoAv2ZvJG73Zkdv8X2TVEydIPVmuFQ==}
     dependencies:
       lazy-js-utils: 0.0.24(typescript@5.0.3)
     transitivePeerDependencies:
