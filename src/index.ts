@@ -1,18 +1,23 @@
 import axios from 'axios'
 import * as vscode from 'vscode'
+import { claudeApi } from 'anthropic-ai'
 
 export async function activate(context: any) {
   vscode.commands.registerTextEditorCommand('extension.generateComment', async (textEditor) => {
-    const doc = textEditor.document
-    const fileName = doc.fileName
-    const start = new vscode.Position(0, 0)
-    const end = new vscode.Position(doc.lineCount - 1, doc.lineAt(doc.lineCount - 1).text.length)
-    // 获取全部文本区域
-    const selection = new vscode.Range(start, end)
-    const text = doc.getText(selection)
-    // 替换文件内容
-    const newCode = await requestClaude('function add(a,b){return a+b}', { model: 'claude-v1' })
+    const editor = vscode.window.activeTextEditor
+    if (!editor)
+      return
+    const selection = editor.selection
+    const wordRange = new vscode.Range(selection.start, selection.end)
+    const selectedText = editor.document.getText(wordRange)
 
+    // 替换文件内容
+
+    claudeApi('function add(a,b){return a+b}', { model: 'claude-v1.3-100k' }).then((res) => {
+      debugger
+    }).catch((err) => {
+      debugger
+    })
     // textEditor.edit((builder) => {
     //   builder.replace(selection, newCode)
     // })
