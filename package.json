@@ -2,7 +2,7 @@
   "publisher": "simonhe",
   "name": "vscode-generate-comment",
   "displayName": "vscode-generate-comment",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@8.1.1",
   "description": "vscode-generate-comment",
   "author": "Simon He <https://github.com/Simon-He95>",
