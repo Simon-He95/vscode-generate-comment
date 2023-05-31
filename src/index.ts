@@ -12,21 +12,17 @@ export async function activate() {
     const wordRange = new vscode.Range(selection.start, selection.end)
     const selectedText = editor.document.getText(wordRange)
     // 替换文件内容
-    claude.complete(`帮我在代码的顶部生成代码注释: \n根据代码的类型比如是js或者ts. \n代码: ${selectedText}`, { model: 'claude-instant-v1.1' }).then((newCode: string) => {
-      const index = newCode.indexOf('*/')
-      let result = ''
-      if (index) {
-        result = `${newCode.slice(0, index + 2)}\n${selectedText}`
-      }
-      else {
-        const _index = newCode.indexOf(selectedText)
-        if (_index)
-          result = newCode.slice(0, newCode.indexOf(selectedText) + selectedText.length)
-        else
-          result = newCode
-      }
+    claude.complete(`帮我在代码的顶部生成代码注释: \n根据代码的类型比如是js或者ts.\n生成内容参考这样的格式"/**
+    * Adds two numbers together.
+    * @param {number} a The first number.
+    * @param {number} b The second number.
+    * @returns {number} The sum of a and b.
+    */" \n代码: \n${selectedText}`, { model: 'claude-v1.3' }).then((newCode: string) => {
+      const startIdx = newCode.indexOf('/**')
+      const endIdx = newCode.indexOf('*/') + 2
+      newCode = `/* vscode-generate-comment */\n${newCode.slice(startIdx, endIdx)}\n${selectedText}`
       textEditor.edit((builder) => {
-        builder.replace(selection, result)
+        builder.replace(selection, newCode)
       })
     }).catch((err: any) => {
       vscode.window.showErrorMessage(err)

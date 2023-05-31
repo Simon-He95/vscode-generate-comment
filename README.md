@@ -3,7 +3,26 @@
 </p>
 <p align="center"> English | <a href="./README_zh.md">简体中文</a></p>
 
->WIP: The vscode plugin generates corresponding function code comments based on the function
+## Before:
+```
+function minus(a: number, b: number) {
+  return a - b
+}
+```
+
+## After:
+```
+/* vscode-generate-comment */
+/**
+ * Subtracts two numbers.
+ * @param {number} a The first number.
+ * @param {number} b The second number.
+ * @returns {number} The difference of a and b.
+ */
+function minus(a: number, b: number) {
+  return a - b
+}
+```
 
 ## :coffee:
 
