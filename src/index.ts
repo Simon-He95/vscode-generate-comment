@@ -12,12 +12,12 @@ export async function activate() {
     const wordRange = new vscode.Range(selection.start, selection.end)
     const selectedText = editor.document.getText(wordRange)
     // 替换文件内容
-    claude.complete(`帮我在代码的顶部生成代码注释: \n根据代码的类型比如是js或者ts.\n生成内容参考这样的格式"/**
+    claude.complete(`需求: 帮我在代码的顶部生成代码注释: \n根据代码的类型比如是js或者ts.\n生成内容参考这样的格式"/**
     * Adds two numbers together.
     * @param {number} a The first number.
     * @param {number} b The second number.
     * @returns {number} The sum of a and b.
-    */" \n代码: \n${selectedText}`, { model: 'claude-v1.3' }).then((newCode: string) => {
+    */" \n\n代码: \n${selectedText}`, { model: '1.3' }).then((newCode: string) => {
       const startIdx = newCode.indexOf('/**')
       const endIdx = newCode.indexOf('*/') + 2
       newCode = `/* vscode-generate-comment */\n${newCode.slice(startIdx, endIdx)}\n${selectedText}`
@@ -25,7 +25,7 @@ export async function activate() {
         builder.replace(selection, newCode)
       })
     }).catch((err: any) => {
-      vscode.window.showErrorMessage(err)
+      vscode.window.showErrorMessage(err.message)
     })
   })
 }

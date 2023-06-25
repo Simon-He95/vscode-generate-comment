@@ -11,8 +11,8 @@ devDependencies:
     specifier: ^1.77.0
     version: 1.77.0
   anthropic-ai:
-    specifier: ^0.0.8
-    version: 0.0.8
+    specifier: ^0.0.10
+    version: 0.0.10
   anthropic-api:
     specifier: ^1.0.0
     version: 1.0.0
@@ -800,8 +800,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /anthropic-ai@0.0.8:
-    resolution: {integrity: sha512-Mz+1I69LQZ4qW6NVxt97NLWmVgp10Cm+GL/K2ETQzwraZN8tFDPx1riF4ADuzavCUKB84a4BpRHofjptZKXWUg==}
+  /anthropic-ai@0.0.10:
+    resolution: {integrity: sha512-Mjy9gvQRb+cvU9g/APr2OeZQqEoLrd4auN5ymmuGxRxoesj2DNJ+zP2Hw94DXjMTovpgY9H7tsYenoFYbxXSVg==}
     dev: true
 
   /anthropic-api@1.0.0:
